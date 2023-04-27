@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.Views.AcademicReport"
+             Title="Report">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Create Report"
+                    x:Name="createReport"
+                    Clicked="createReport_Clicked"
+                    VerticalOptions="Start"
+                    BackgroundColor="LightBlue"/>
+
+            
+            <Label x:Name="title" Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center" TextColor="Black"/>
+            <Label x:Name="date" Text="{Binding Date}" HorizontalOptions="Center" TextColor="Black" FontSize="Medium" Margin="10,0,0,0"/>
+
+            <Grid Padding="10" Margin="30,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="terms" Text="{Binding Terms}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" TextColor="Black" FontSize="Large"/>
+                <Label x:Name="invisTerm" Text="Terms Remaining" Grid.Row="0" Grid.Column="1" IsVisible="false" HorizontalOptions="Center" TextColor="Black" FontSize="Large"/>
+                <Label x:Name="courses" Text="{Binding Courses}" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" TextColor="Black" FontSize="Large"/>
+                <Label x:Name="invisCourse" Text="Courses Remaining" Grid.Row="1" Grid.Column="1" IsVisible="false" HorizontalOptions="Center" TextColor="Black" FontSize="Large"/>
+                <Label x:Name="assessments" Text="{Binding Assessments}" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" TextColor="Black" FontSize="Large"/>
+                <Label x:Name="invisAssessment" Text="Assessments Remaining" Grid.Row="2" Grid.Column="1" IsVisible="false" HorizontalOptions="Center" TextColor="Black" FontSize="Large"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

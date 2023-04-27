@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.Views.Login"
+             Title="Education Tracker">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="userName" Placeholder="Enter Username" TextChanged="userName_TextChanged"/>
+            <Entry x:Name="passWord" Placeholder="Enter Password" TextChanged="passWord_TextChanged"/>
+            <Button Text="Log in"
+                    x:Name="loginButton"
+                    Clicked="loginButton_Clicked"
+                    VerticalOptions="Start"
+                    BackgroundColor="LightBlue"/>
+
+            <Button Text="Create account"
+                    x:Name="createButton"
+                    Clicked="createButton_Clicked"
+                    VerticalOptions="Start"
+                    BackgroundColor="LightBlue"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

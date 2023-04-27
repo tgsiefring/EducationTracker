@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.Views.AddTerm"
+             Title="Add Term">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label TextColor="DarkBlue" Grid.Row="0" Grid.Column="0" Text="Term Name: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="termName" Grid.Row="0" Grid.Column="1" Placeholder = "Term Name" />
+                
+                <Label TextColor="DarkBlue" Grid.Row="1" Grid.Column="0" Text="Start Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="1" Grid.Column="1" x:Name="startDatePicker"
+                                                         Format="D"/>
+                
+                <Label TextColor="DarkBlue" Grid.Row="2" Grid.Column="0" Text="End Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="2" Grid.Column="1" x:Name="endDatePicker"
+                                                         Format="D"/>
+
+                <Label Grid.Row="3" Grid.Column="0" TextColor="DarkBlue" Text="User ID: " IsVisible="False" Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="userIDLink" Grid.Row="3" Grid.Column="1" Placeholder="User ID" Text="{Binding UserID}" IsReadOnly="true" IsVisible="False"/>
+            </Grid>
+            
+            <Button Text="Save"
+                    x:Name="save"
+                    Clicked="save_Clicked"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="LightBlue"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

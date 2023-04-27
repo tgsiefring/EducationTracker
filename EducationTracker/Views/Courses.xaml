@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.Views.Courses"
+             Title="Courses">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView x:Name="collectionViewCourses"
+                            ItemsSource="{Binding Course}"                            
+                            SelectionMode="Single"
+                            SelectionChanged="collectionViewCourses_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid Padding="5" RowSpacing="1" BackgroundColor="Aquamarine">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" TextColor="DarkBlue" IsVisible="False" FontSize="Large" VerticalTextAlignment="Center">ID</Label>
+                                <Label Grid.Row="0" Grid.Column="1" TextColor="DarkBlue" IsVisible="False" Text="{Binding CourseID}" FontSize="Large" VerticalTextAlignment="Center"/>
+
+                                <Label Grid.Row="1" Grid.Column="0" TextColor="DarkBlue" IsVisible="False" FontSize="Large" VerticalTextAlignment="Center">Course Name</Label>
+                                <Label Grid.Row="1" Grid.Column="1" TextColor="DarkBlue" Text="{Binding CourseName}" FontSize="Large" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            <Button Text="Add Course"
+                    x:Name="addCourse"
+                    Clicked="addCourse_Clicked"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="LightBlue"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

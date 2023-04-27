@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.TermInformation"
+             Title="Term Information">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" TextColor="DarkBlue" Text="Term ID: " IsVisible="False"/>
+                <Entry FontSize="Small" x:Name="TermIDEntry" Grid.Row="0" Grid.Column="1" Text="{Binding TermID}" IsReadOnly="True" IsVisible="False"/>
+
+                <Label Grid.Row="1" Grid.Column="0" TextColor="DarkBlue" Text="Term Name: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="TermNameEntry" Grid.Row="1" Grid.Column="1" Text = "{Binding TermName}"/>
+
+                <Label Grid.Row="2" Grid.Column="0" TextColor="DarkBlue" Text="Start Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="2" Grid.Column="1" x:Name="startDatePicker"
+                                                         Format="D"
+                                                         Date="{Binding TermStartDate}"/>
+
+                <Label Grid.Row="3" Grid.Column="0" TextColor="DarkBlue" Text="End Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="3" Grid.Column="1" x:Name="endDatePicker"
+                                                         Format="D"
+                                                         Date="{Binding TermEndDate}"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Text="User ID: " IsVisible="False"/>
+                <Entry FontSize="Small" x:Name="UserIDEntry" Grid.Row="4" Grid.Column="1" Text="{Binding UserID}" IsReadOnly="True" IsVisible="False"/>
+            </Grid>
+            <Button Text="View Courses"
+                    x:Name="ViewCourses"
+                    Clicked="ViewCourses_Clicked"
+                    VerticalOptions="StartAndExpand"
+                    BackgroundColor="LightBlue"/>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button Text="Update"
+                    x:Name="update"
+                    Clicked="Update_Clicked"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="LightBlue"/>
+                <Button Text="Delete"
+                    x:Name="delete"
+                    Clicked="Delete_Clicked"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="LightBlue"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

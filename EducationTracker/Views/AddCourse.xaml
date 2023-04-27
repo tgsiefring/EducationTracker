@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.Views.AddCourse"
+             Title="Add Course">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" TextColor="DarkBlue" Text="Course Name: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="courseName" Grid.Row="0" Grid.Column="1" Placeholder = "Course Name" />
+
+                <Label Grid.Row="1" Grid.Column="0" TextColor="DarkBlue" Text="Start Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="1" Grid.Column="1" x:Name="courseStartDatePicker"
+                                                         Format="D"/>
+
+                <Label Grid.Row="2" Grid.Column="0" TextColor="DarkBlue" Text="End Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="2" Grid.Column="1" x:Name="courseEndDatePicker"
+                                                         Format="D"/>
+
+                <Label Grid.Row="3" Grid.Column="0" TextColor="DarkBlue" Text="Course Status: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Picker FontSize="Small" Grid.Row="3" Grid.Column="1" x:Name="courseStatusPicker" Title="Course Status">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>In Progress</x:String>
+                            <x:String>Completed</x:String>
+                            <x:String>Dropped</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="4" Grid.Column="0" TextColor="DarkBlue" Text="Instructor Name: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="instructorName" Grid.Row="4" Grid.Column="1" Placeholder="Instructor Name"/>
+
+                <Label Grid.Row="5" Grid.Column="0" TextColor="DarkBlue" Text="Instructor Phone: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="instructorPhone" Grid.Row="5" Grid.Column="1" Placeholder="Instructor Phone"/>
+
+                <Label Grid.Row="6" Grid.Column="0" TextColor="DarkBlue" Text="Instructor E-mail: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="instructorEmail" Grid.Row="6" Grid.Column="1" Placeholder="Instructor E-mail"/>
+
+                <Label Grid.Row="7" Grid.Column="0" TextColor="DarkBlue" Text="Course Notes: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="courseNotes" Grid.Row="7" Grid.Column="1" Placeholder="Course Notes"/>
+
+                <Label Grid.Row="8" Grid.Column="0" TextColor="DarkBlue" Text="Term ID: " IsVisible="False" Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="termIDLink" Grid.Row="8" Grid.Column="1" Placeholder="Term ID" Text="{Binding TermID}" IsReadOnly="true" IsVisible="False"/>
+            </Grid>
+
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Margin="5,5,0,0" Text="Get notifications on the day this course starts and/or ends" />
+                    <Switch x:Name="courseSwitch" Grid.Row="0" Grid.Column="1"/>
+
+                </Grid>
+            </StackLayout>
+
+            <Button Text="Save"
+                    x:Name="saveCourse"
+                    Clicked="SaveCourse_Clicked"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="LightBlue"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

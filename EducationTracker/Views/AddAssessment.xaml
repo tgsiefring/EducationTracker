@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.Views.AddAssessment"
+             Title="Add Assessment">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" TextColor="DarkBlue" Text="Assessment Name: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Entry FontSize="Small" x:Name="assessmentName" Grid.Row="0" Grid.Column="1" Placeholder = "Assessment Name" />
+
+                <Label Grid.Row="1" Grid.Column="0" TextColor="DarkBlue" Text="Start Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="1" Grid.Column="1" x:Name="assessmentStartDatePicker"
+                                                         Format="D"/>
+
+                <Label Grid.Row="2" Grid.Column="0" TextColor="DarkBlue" Text="End Date: " Margin="10,10,0,0" FontSize="Medium"/>
+                <DatePicker FontSize="Small" Grid.Row="2" Grid.Column="1" x:Name="assessmentEndDatePicker"
+                                                         Format="D"/>
+
+                <Label Grid.Row="3" Grid.Column="0" TextColor="DarkBlue" Text="Assessment Type: " Margin="10,10,0,0" FontSize="Medium"/>
+                <Picker FontSize="Small" Grid.Row="3" Grid.Column="1" x:Name="assessmentTypePicker" Title="Assessment Type">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Objective Assessment</x:String>
+                            <x:String>Performance Assessment</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="4" Grid.Column="0" TextColor="DarkBlue" Text="Course ID: " IsVisible="False"/>
+                <Entry FontSize="Small" x:Name="courseIDLink" Grid.Row="4" Grid.Column="1" Placeholder="Course ID" Text="{Binding CourseID}" IsReadOnly="true" IsVisible="False"/>
+            </Grid>
+
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Margin="5,5,0,0" Text="Get notifications on the day this assessment starts and/or ends" />
+                    <Switch Grid.Row="0" Grid.Column="1" x:Name="assessmentSwitch2"/>
+
+                </Grid>
+            </StackLayout>
+
+            <Button Text="Save"
+                    x:Name="saveAssessment"
+                    Clicked="saveAssessment_Clicked"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="LightBlue"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

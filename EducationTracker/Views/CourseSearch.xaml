@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971.Views.CourseSearch"
+             Title="Search for courses">
+    <ContentPage.Content>
+        <StackLayout>
+                <SearchBar x:Name="searchBar" TextChanged="searchBar_TextChanged" Placeholder="Enter course name"/>
+                <ListView x:Name="courseList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                            <StackLayout BackgroundColor="LightBlue">
+                                <Label Text="{Binding CourseName}" TextColor="Black"/>
+                                <Label Text="{Binding InstructorName, StringFormat='Instructor: {0}'}" TextColor="Gray" FontAttributes="Italic"/>
+                            </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
